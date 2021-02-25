@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -44,6 +45,16 @@ int eulerphi(int number) {
 	return count;
 }
 
+vector<int> divisor(int number) {
+	vector<int> divset;
+	for (int i = 1; i <= number; i++) {
+		if (number % i == 0) {
+			divset.push_back(i);
+		}
+	}
+	return divset;
+}
+
 // menu function
 void menu() {
 	cout << "Enter the corresponding number to select an option :";
@@ -51,7 +62,8 @@ void menu() {
 	cout << "\n\n1.   GCD (Pair)";
 	cout << "\n2.   Inverse of Congruence";
 	cout << "\n3.   Euler Phi";
-	cout << "\n\n4.   Exit\n\n";
+	cout << "\n4.   Divisors";
+	cout << "\n\n5.   Exit\n\n";
 }
 
 int main() {
@@ -60,6 +72,7 @@ int main() {
 	int numberIn;
 	int numberIn2;
 	int inv;
+	vector<int> divisors;
 
     while (exit == false) {
         system("cls"); // clear screen
@@ -115,7 +128,19 @@ int main() {
 				cout << endl;
 				system("pause"); // system pause
 				break;
-			case 4: // exit
+			case 4:
+				cout << "Please enter a number:" << endl;
+				cin >> numberIn;
+				cout << endl;
+				cout << "The divisor set of the number are:" << endl;
+				divisors = divisor(numberIn);
+				for (int i = 0; i < divisors.size(); i++) {
+					cout << divisors.at(i) << endl;
+				}
+				cout << endl;
+				system("pause"); // system pause
+				break;
+			case 5: // exit
 				cout << "Good Bye!" << endl << endl;
 				exit = true;
 				break;
