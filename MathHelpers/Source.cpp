@@ -135,9 +135,12 @@ int main() {
 				cout << "The divisor set of the number are:" << endl;
 				divisors = divisor(numberIn);
 				for (int i = 0; i < divisors.size(); i++) {
-					cout << divisors.at(i) << endl;
+					cout << divisors.at(i);
+					if (i < divisors.size() - 1) {
+						cout << ", ";
+					}
 				}
-				cout << endl;
+				cout << endl << endl;
 				system("pause"); // system pause
 				break;
 			case 5: // exit
